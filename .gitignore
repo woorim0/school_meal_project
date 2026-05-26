@@ -1,4 +1,2 @@
 .streamlit/secrets.toml
 test.py
-requirements.txt
-.gitignore
