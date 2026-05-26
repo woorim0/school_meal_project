@@ -1,4 +1,5 @@
 .streamlit/secrets.toml
+.devcontainer/devcontainer.json
+.vscode/settings.json
 test.py
-.devcontainer
-.vscode
+.gitignore
