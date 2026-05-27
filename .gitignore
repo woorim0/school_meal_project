@@ -1,5 +1,0 @@
-.streamlit/secrets.toml
-.devcontainer/
-.vscode/
-test.py
-.gitignore
