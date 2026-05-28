@@ -1,3 +1,9 @@
+"""
+Copyright (c) 2026 woorim0
+Licensed under the MIT License.
+See LICENSE file in the project root for full license information.
+"""
+
 import streamlit as st
 from google import genai
 from datetime import datetime, timedelta
@@ -116,7 +122,7 @@ async def get_school_meal_async(office_code, school_code, date):
 
 # 여러 날짜의 요청을 하나의 비동기 세트로 묶어주는 핵심 함수
 async def fetch_all_dates(office_code, school_code, date_list):
-	# for문 안에서 실행하는 게 아니라, '예약 찌트'만 만듭니다. (괄호 뒤에 await를 안 붙이는 게 핵심!)
+	# for문 안에서 실행하는 게 아니라, '예약'만 만듭니다. (괄호 뒤에 await를 안 붙이는 게 핵심!)
 	tasks = [
 		get_school_meal_async(office_code, school_code, date)
 		for date in date_list
