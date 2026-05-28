@@ -198,7 +198,7 @@ SCHOOL_CODE = "7150114" # 신도고 학교 코드
 SCHOOL_NAME = "신도고등학교"
 SCHOOL_REGION = "부산"
 
-@st.cache_data
+@st.cache_data # 처음 한번만 로딩하는 코드 (스트림릿 내장)
 def load_school_csv(file_path):
 	extracted_schools = []
 	with open(file_path, mode='r', encoding='cp949') as f: # cp949는 한글 깨짐 방지
@@ -208,18 +208,18 @@ def load_school_csv(file_path):
 				"office_code": row["시도교육청코드"],
 				"school_code": row["표준학교코드"],
 				"school_name": row["학교명"],
-				"scholl_region": row["소재지명"]
+				"school_region": row["소재지명"]
 			})
 	return extracted_schools
 
 all_schools = load_school_csv("school_list.csv")
 
-if is_checked_other:
+if is_checked_other: # 랜덤 학교 급식 체크박스 켜진 상태일때만
 	random_school = random.choice(all_schools)
 	OFFICE_CODE = random_school["office_code"]
 	SCHOOL_CODE = random_school["school_code"]
 	SCHOOL_NAME = random_school["school_name"]
-	SCHOOL_REGION = random_school["scholl_region"]
+	SCHOOL_REGION = random_school["school_region"]
 
 
 days = ["월", "화", "수", "목", "금"]
