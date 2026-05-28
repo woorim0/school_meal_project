@@ -140,6 +140,10 @@ params = {
 
 비동기 방식 대신 이 방식을 사용하는 것이 더 좋습니다.
 
+하지만 본 코드에서는 비동기 방식으로 구현했습니다.
+
+구현 과정에서 여러 개의 급식 정보를 담은 함수를 만들어보았으나, 값 반환 형식이 달라서 구현하기 힘들게 되어 부득이하게 본 방법으로 구현하게 되었습니다.
+
 ---
 ### 제미나이 호출
 사용하는 AI 모델은 **'gemini-3.1-flash-lite'** 모델으로 무료인데도 api 사용량이 널널합니다. (하루 500회 호출 가능)
@@ -221,15 +225,16 @@ if is_checked_other: # 랜덤 학교 급식 체크박스 켜진 상태일때만
 st.markdown(f"""
 <style>
     #{네온 효과 입힐 글자} span {{
-        opacity: 1 !important;
-        background-color: #6b5f4a !important;
+        # 아래 코드가 텍스트 네온 효과의 핵심
         text-shadow:
-            0 0 2px #edcf98,
-            0 0 4px #edcf98,
-            0 0 6px #edcf98;
+            0 0 2px #ffffff,
+            0 0 4px #ffffff,
+            0 0 6px #ffffff;
     }}
 </style>
 """, unsafe_allow_html=True)
 ```
 
 글자 뒤에 밝은 그림자를 여러개 만들어서 텍스트 네온 효과를 냅니다.
+
+st.markdown 함수에서도 작동하는 코드입니다.
